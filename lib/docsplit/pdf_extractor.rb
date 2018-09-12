@@ -126,6 +126,7 @@ module Docsplit
           `gm convert #{escaped_doc} #{escaped_out}/#{escaped_basename}.pdf`
         else
           if libre_office?
+            throw Libre
             # Set the LibreOffice user profile, so that parallel uses of cloudcrowd don't trip over each other.
             ENV['SYSUSERCONFIG']="file://#{File.expand_path(escaped_out)}"
             

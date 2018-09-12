@@ -129,7 +129,7 @@ module Docsplit
             # Set the LibreOffice user profile, so that parallel uses of cloudcrowd don't trip over each other.
             ENV['SYSUSERCONFIG']="file://#{File.expand_path(escaped_out)}"
             
-            options = "--headless --invisible  --norestore --nolockcheck --convert-to pdf --outdir #{escaped_out} #{escaped_doc}"
+            options = "--headless --invisible  --norestore --nolockcheck --convert-to pdf:calc_pdf_Export --outdir #{escaped_out} #{escaped_doc}"
             cmd = "#{office_executable} #{options} 2>&1"
             result = `#{cmd}`.chomp
             raise ExtractionFailed, result if $? != 0
